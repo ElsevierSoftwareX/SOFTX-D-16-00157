@@ -1,0 +1,193 @@
+
+<html>
+<head>
+  <title>ccTFR 0-16</title>  
+  <link rel="stylesheet" type="text/css" href="style.css">  
+</head>
+
+<body>
+  <div class="center"><a href="index.html">main menu</a></div>
+  <span class="title">tfr_pulse_generator</span><br><br>
+  This class introduces generator definition. The generator is dedicated to produce periodic frequency modulated pulse signals (pulse series). There are available three types of pulses: harmonic, linear frequency modulated, as well as hyperbolic frequency modulated. The pulses can be shaped (tapered) by Tukey window. The transitional range of this window can be specified by 'transition' field in  tfr_pulse_config structure.<br><br>
+
+  <div class="includes">
+    <span class="title">Files</span><br><br>
+    tfr-pulse-gener.hh<br>
+    tfr-pulse-gener.cc
+  </div>
+  <br>
+
+
+  <div class="structures">
+    <span class="title">Structures</span> (introduced structures)<br><br>
+    <a href="#struct"><span class="type">struct</span> tfr_pulse_config</a><br>
+  </div>
+  <br>
+
+
+  <div class="functions">
+    <span class="title">Functionality</span> (only public methods of tfr_pulse_generator)<br><br>
+    <table>
+      <tr>
+	<td></td>	
+	<td><a href="#signal_generator"> <span class="name">tfr_pulse_generator</span>(<span class="type">tfr_pulse_config*</span>)</a><td>
+      </tr>
+
+      <tr><td><br></td></tr>
+
+      <tr>
+	<td class="right"><a href="#config_update"><span class="type">void</span></a></td>
+	<td><a href="#get_config"><span class="name">update_configuration</span>(<span class="type">tfr_pulse_config*</span>)</a></td>
+      </tr>
+
+      <tr><td><br></td></tr>
+
+      <tr>
+	<td class="right"><a href="#get_config"><span class="type">tfr_pulse_config*</span></a></td>
+	<td><a href="#get_config"><span class="name">get_generator_configuration</span>()</a></td>
+      </tr>
+      <tr>
+	<td class="right"><a href="#get_config"><span class="type">tfr_pulse_config*</span></a></td>
+	<td><a href="#get_config"><span class="name">get_config</span>()</a></td>    
+      </tr>
+
+      <tr><td><br></td></tr>
+
+      <tr>
+	<td class="right"><a href="#add_signal"><span class="type">double</span></a></td>
+	<td><a href="#add_signal"><span class="name">add_harmonic</span>(<span class="type">tfr_complex_signal*</span>)</a></td>
+      </tr>
+      <tr>
+	<td class="right"><a href="#add_signal"><span class="type">double</span></a></td>
+	<td><a href="#add_signal"><span class="name">add_lfm_chirp</span>(<span class="type">tfr_complex_signal*</span>)</a></td>
+      </tr>
+      <tr>
+	<td class="right"><a href="#add_signal"><span class="type">double</span></a></td>
+	<td><a href="#add_signal"><span class="name">add_hfm_chirp</span>(<span class="type">tfr_complex_signal*</span>)</a></td>
+      </tr>
+
+      <tr><td><br></td></tr>
+
+      <tr>
+	<td class="right"><a href="#add_random"><span class="type">double</span></a></td>
+	<td><a href="#add_random"><span class="name">add_random_fsk</span>(<span class="type">tfr_complex_signal*</span>)</a></td>
+      </tr>
+
+    </table>
+  </div>
+  <br>
+
+
+  <div class="structures" id="struct">
+    <span class="title"><span class="details">Structure</span> tfr_pulse_config</span><br><br>
+
+
+    <table>
+      <tr>
+	<td class="right"><span class="type">double</span></td>
+	<td>delay</td>
+      </tr>
+      <tr>
+	<td class="right"><span class="type">double</span></td>
+	<td>period</td>
+      </tr>
+      <tr>
+	<td class="right"><span class="type">double</span></td>
+	<td>width</td>
+      </tr>
+      <tr>
+	<td class="right"><span class="type">double</span></td>
+	<td>amplitude</td>
+      </tr>
+      <tr>
+	<td class="right"><span class="type">double</span></td>
+	<td>frequency</td>
+      </tr>
+      <tr>
+	<td class="right"><span class="type">double</span></td>
+	<td>bandwidth</td>
+      </tr>
+      <tr>
+	<td class="right"><span class="type">double</span></td>
+	<td>transition</td>
+      </tr>
+      </table>
+  </div><br>
+  This structure preserves full generator configuration.
+  <br><br>
+
+  
+
+  <div class="functions" id="signal_generator">
+    <span class="title">Generator construction</span><br><br>
+    1. <span class="name">tfr_pulse_generator</span>(<span class="type">tfr_pulse_config*</span> a_conf)<br>
+  </div>
+  <br>
+  This constructor use configuration structure to introduce all necessary parameters.
+  <br><br>
+  Argument:<br>  
+  <lu>
+    <li>a_conf <span class="details">- pulse generator configuration.</span></li>
+  </lu>
+  <br>
+
+  <div class="functions" id="config_update">
+    <span class="title">Update configuration</span> (method)<br><br>
+    1. <span class="type">void</span> <span class="name">update_configuration</span>(<span class="type">tfr_pulse_config*</span> a_conf)<br>
+  </div>
+  <br>
+ This method allow to change generator configuration.<br><br>
+  Argument:<br>  
+  <lu>
+    <li>a_conf <span class="details">- pulse generator configuration.</span></li>
+  </lu>
+  <br>
+
+  
+  
+  <div class="functions" id="get_config">
+    <span class="title">Get configuration</span> (methods)<br><br>
+    1. <span class="type">tfr_pulse_config*</span> <span class="name">get_signal_configuration</span>()<br>
+    2. <span class="type">tfr_pulse_config*</span> <span class="name">get_config</span>()<br>
+  </div>
+  <br>
+  These functions return object configuration as a pointer to a tfr_signal_config object. Both functions work identically.<br><br>
+  Returned value:<br>  
+  <lu>
+    <li>return <span class="details">- pulse generator configuration.</span></li>
+  </lu>
+  <br>
+
+
+  <div class="functions" id="add_signal">
+    <span class="title">Add signal</span> (methods)<br><br>
+    1. <span class="type">double</span> <span class="name">add_harmonic</span>(<span class="type">tfr_complex_signal*</span> a_sig)<br>
+    2. <span class="type">double</span> <span class="name">add_lfm_chirp</span>(<span class="type">tfr_complex_signal*</span> a_sig)<br>
+    3. <span class="type">double</span> <span class="name">add_hfm_chirp</span>(<span class="type">tfr_complex_signal*</span> a_sig)<br>
+  </div>
+  <br>
+  These functions allow to add to existing signal new generated samples. The generator can produce shaped pulses of harmonic signals, linear frequency modulated chirps, as well as hiperbolic modulated chirps. A new signal is generated based on internal generator configuration. Each pulse is tapered by Tukey window. The field transition in generator_config is used for set range of tapered margins (value between 0 and 1).<br><br>
+  Returned value:<br>  
+  <lu>
+    <li>a_sig <span class="details">- existing signal, which will be modified,</span></li>
+    <li>return <span class="details">- added energy.</span></li>
+  </lu>
+  <br>
+
+  <div class="functions" id="add_random">
+    <span class="title">Add random</span> (method)<br><br>
+    1. <span class="type">double</span> <span class="name">add_random_fsk</span>(<span class="type">tfr_complex_signal*</span> a_sig)<br>
+  </div>
+  <br>
+  This function allows to add to existing signal new generated samples. The generator can produce shaped FSK pulses whose frequency is random. Each pulse is tapered by Tukey window similar as in the previous section (Add signal).<br><br>
+
+  Returned value:<br>  
+  <lu>
+    <li>a_sig <span class="details">- existing signal, which will be modified,</span></li>
+    <li>return <span class="details">- added energy.</span></li>
+  </lu>
+  <br>
+
+  <div class="center"><a href="index.html">main menu</a></div>
+</body>  
+</html>

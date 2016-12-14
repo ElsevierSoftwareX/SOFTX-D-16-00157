@@ -1,0 +1,363 @@
+
+<html>
+<head>
+  <title>ccTFR 0-16</title>  
+  <link rel="stylesheet" type="text/css" href="style.css">  
+</head>
+
+<body>
+  <div class="center"><a href="index.html">main menu</a></div>
+  <span class="title">tfr_complex_signal</span><br><br>
+  This class introduces signal definition contained complex samples. The configuration consists in the following properties: start instant, number of samples, as well as sampling rate. This class allows also simple manipulatios of the signal such as cutting or modulating.<br><br> 
+
+  <div class="includes">
+    <span class="title">Files</span><br><br>
+    tfr-complex-signal.hh<br>
+    tfr-complex-signal.cc
+  </div>
+  <br>
+
+
+  <div class="structures">
+    <span class="title">Structures</span> (introduced structures)<br><br>
+    <a href="#struct"><span class="type">struct</span> tfr_signal_config</a><br>
+  </div>
+  <br>
+
+
+  <div class="functions">
+    <span class="title">Functionality</span> (only public methods of tfr_complex_signal)<br><br>
+    <table>
+      <tr>
+	<td></td>	
+	<td><a href="#tfr_complex_signal"> <span class="name">tfr_complex_signal</span>(<span class="type">tfr_signal_config*</span>)</a><td>
+      </tr>
+      <tr>
+	<td></td>	
+	<td><a href="#tfr_complex_signal"> <span class="name">tfr_complex_signal</span>(<span class="type">char*</span>, <span class="type">int</span> =0)</a><td>
+      </tr>
+
+      <tr><td><br></td></tr>
+
+      <tr>
+	<td class="right"><a href="#cmp_config"><span class="type">bool</span></a></td>
+	<td><a href="#cmp_config"><span class="name">compare_configuration</span>(<span class="type">tfr_signal_config*</span>)</a></td>
+      </tr>
+
+      <tr><td><br></td></tr>
+
+      <tr>
+	<td class="right"><a href="#get_config"><span class="type">tfr_signal_config*</span></a></td>
+	<td><a href="#get_config"><span class="name">get_signal_configuration</span>()</a></td>
+      </tr>
+      <tr>
+	<td class="right"><a href="#get_config"><span class="type">tfr_signal_config*</span></a></td>
+	<td><a href="#get_config"><span class="name">get_config</span>()</a></td>    
+      </tr>
+
+      <tr><td><br></td></tr>
+
+      <tr>
+	<td class="right"><a href="#copy_waveform"><span class="type">int</span></a></td>
+	<td><a href="#copy_waveform"><span class="name">copy_waveform</span>(<span class="type">tfr_complex_signal*</span>, <span class="type">int</span> =0)</a></td>
+      </tr>
+      <tr>
+	<td class="right"><a href="#copy_waveform"><span class="type">int</span></a></td>
+	<td><a href="#copy_waveform"><span class="name">copy</span>(<span class="type">tfr_complex_signal*</span>, <span class="type">int</span> =0)</a></td>
+      </tr>
+    
+      <tr><td><br></td></tr>
+
+      <tr>
+	<td class="right"><a href="#clear_waveform"><span class="type">void</span></a></td>
+	<td><a href="#clear_waveform"><span class="name">clear_waveform</span>()</a></td>
+      </tr>
+      <tr>
+	<td class="right"><a href="#clear_waveform"><span class="type">void</span></a></td> 
+	<td><a href="#clear_waveform"><span class="name">clear</span>()</a></td>
+      </tr>
+
+            <tr><td><br></td></tr>
+
+      <tr>
+	<td class="right"><a href="#cut_waveform"><span class="type">int</span></a></td>
+	<td><a href="#cut_waveform"><span class="name">cut_waveform</span>(<span class="type">double</span>, <span class="type">double</span>)</a></td>
+      </tr>
+      <tr>
+	<td class="right"><a href="#cut_waveform"><span class="type">int</span></td>
+	<td><a href="#cut_waveform"><span class="name">cut</span>(<span class="type">double</span>, <span class="type">double</span>)</a></td>
+      </tr>
+
+      <tr><td><br></td></tr>
+
+      <tr>
+	<td class="right"><a href="#modulate_waveform"><span class="type">void</span></a></td>
+	<td><a href="#modulate_waveform"><span class="name">modulate_waveform</span>(<span class="type">double</span>)</a><td>
+      </tr>
+      <tr>
+	<td class="right"><a href="#modulate_waveform"><span class="type">void</span></a></td>
+	<td><a href="#modulate_waveform"><span class="name">modulate</span>(<span class="type">double</span>)</a></td>
+      </tr>
+
+      <tr><td><br></td></tr>
+
+      <tr>
+	<td class="right"><a href="#tfr_fourier_spectrum"><span class="type">tfr_fourier_spectrum*</span></a></td>
+	<td><a href="#tfr_fourier_spectrum"><span class="name">get_fourier_spectrum</span>()</a></td>
+      </tr>
+      <tr>
+	<td class="right"><a href="#tfr_fourier_spectrum"><span class="type">tfr_fourier_spectrum*</span></a></td>
+	<td><a href="#tfr_fourier_spectrum"><span class="name">get_spectrum</span>()</a></td>
+      </tr>
+
+      <tr><td><br></td></tr>
+
+      <tr>
+	<td class="right"><a href="#calc_energy"><span class="type">double</span></a></td>
+	<td><a href="#calc_energy"><span class="name">calc_energy</span>()</a></td>
+      </tr>
+
+      <tr><td><br></td></tr>
+
+      <tr>
+	<td class="right"><a href="#save"><span class="type">void</span></a></td>
+	<td><a href="#calc_energy"><span class="name">save_to_file</span>(<span class="type">const char*</span>)</a></td>
+      </tr>
+      <tr>
+	<td class="right"><a href="#save"><span class="type">void</span></a></td>
+	<td><a href="#calc_energy"><span class="name">save</span>(<span class="type">const char*</span>)</a></td>
+      </tr>
+
+            <tr><td><br></td></tr>
+
+      <tr>
+	<td class="right"><a href="#save_wav"><span class="type">void</span></a></td>
+	<td><a href="#calc_energy"><span class="name">save_to_wavfile</span>(<span class="type">const char*</span>)</a></td>
+      </tr>
+      <tr>
+	<td class="right"><a href="#save_wav"><span class="type">void</span></a></td>
+	<td><a href="#calc_energy"><span class="name">save_wav</span>(<span class="type">const char*</span>)</a></td>
+      </tr>
+
+
+    </table>
+  </div>
+  <br>
+
+
+
+
+
+  <div class="properties">
+    <span class="title">Properties</span> (only public fields of tfr_complex_signal)<br><br>
+    
+    <a href="#waveform">m_waveform</a><br> 
+  </div>
+  <br>
+
+
+  <div class="structures" id="struct">
+    <span class="title"><span class="details">Structure</span> tfr_signal_config</span><br><br>
+
+    <table>
+      <tr>
+	<td class="right"><span class="type">double</span></td>
+	<td>start</td>
+      </tr>
+      <tr>
+	<td class="right"><span class="type">double</span></td>
+	<td>rate</td>
+      </tr>
+      <tr>
+	<td class="right"><span class="type">int</span></td>
+	<td>length</td>
+      </tr>
+      </table>
+  </div><br>
+  This structure preserves full signal configuration.
+  <br><br>
+
+  
+
+  <div class="functions" id="tfr_complex_signal">
+    <span class="title">Signal construction</span><br><br>
+    1. <span class="name">tfr_complex_signal</span>(<span class="type">tfr_signal_config*</span> a_conf)<br>
+    2. <span class="name">tfr_complex_signal</span>(<span class="type">char*</span> a_wav_filename, <span class="type">int</span> a_channel_number)
+  </div>
+  <br>
+  The first constructor creates an empty object. The memory is allocated, however sample values in waveform buffer are equal to zeros. This constructor assigns number of samples, sampling rate, and instant of a first sample, which are members of signal configuration given as a pointer in the argument. The samples can be assigned in a loop (see example in <a href="test-synthetic">test-synthetic</a>). The second constructor is dedicated to loading signal from a WAV file (see example in <a href="test-wavfile">test-wavfile</a>).<br><br>
+  Arguments and return:<br>  
+  <lu>
+    <li>a_conf <span class="details">- signal configuration,</span></li>
+    <li>a_wav_filename <span class="details">- file name with wav extension,</span></li>
+    <li>a_channel_number <span class="details">- channel number (default value is 0).</span></li>
+  </lu>
+  <br>
+
+
+  <div class="functions" id="cmp_config">
+    <span class="title">Compare configuration</span> (method)<br><br>
+    1. <span class="type">bool</span> <span class="name">compare_configuration</span>(<span class="type">tfr_signal_config*</span> a_conf)<br>
+  </div>
+  <br>
+  This function returns true if an object and its argument (object which is pointed by argument) have the same configurations.<br><br>
+  Arguments and return:<br>  
+  <lu>
+    <li>a_conf <span class="details">- pointer to tfr_signal_config which is compared,</span></li>
+    <li>return <span class="details">- binary result of comparison.</span></li>
+  </lu>
+  <br>
+
+
+  
+  <div class="functions" id="get_config">
+    <span class="title">Get configuration</span> (methods)<br><br>
+    1. <span class="type">tfr_signal_config*</span> <span class="name">get_signal_configuration</span>()<br>
+    2. <span class="type">tfr_signal_config*</span> <span class="name">get_config</span>()<br>
+  </div>
+  <br>
+  These functions return object configuration as a pointer to a tfr_signal_config object. Both functions work identically.<br><br>
+  Arguments and return:<br>  
+  <lu>
+    <li>return <span class="details">- signal configuration.</span></li>
+  </lu>
+  <br>
+
+
+  
+
+  <div class="functions" id="copy_waveform">
+    <span class="title">Copy waveform</span> (methods)<br><br>
+    1. <span class="type">int</span> <span class="name">copy_waveform</span>(<span class="type">tfr_complex_signal*</span> a_sig, <span class="type">int</span> a_index)<br>
+    2. <span class="type">int</span> <span class="name">copy</span>(<span class="type">tfr_complex_signal*</span> a_sig, <span class="type">int</span> a_index)<br>
+  </div>
+  <br>
+  These functions are dedicated to copy waveform from an object in the argument to the object. A byte number, which is copied, is equal to shorter from both. Signal configuration is not modified. Both functions work identically.<br><br>
+  Arguments and return:<br>  
+  <lu>
+    <li>a_sig <span class="details">- object from which waveform is copied,</span></li>
+    <li>a_index <span class="details">- index from which waveform is copied (default value is 0),</span></li>
+    <li>return <span class="details">- number of copied samples.</span></li>
+  </lu>
+  <br>
+
+
+
+  <div class="functions" id="clear_waveform">
+    <span class="title">Clear waveform</span> (methods)<br><br>
+    1. <span class="type">void</span> <span class="name">clear_waveform</span>()<br>
+    2. <span class="type">void</span> <span class="name">clear</span>()<br>
+  </div>
+  <br>
+  These functions are dedicated to clear waveform of the object. Both functions work identically.<br><br>
+
+
+  
+  <div class="functions" id="cut_waveform">
+    <span class="title">Cut waveform</span> (methods)<br><br>
+    1. <span class="type">int</span> <span class="name">cut_waveform</span>(<span class="type">double</span> a_new_start, <span class="type">double</span> a_new_stop)<br>
+    2. <span class="type">int</span> <span class="name">cut</span>(<span class="type">double</span> a_new_start, <span class="type">double</span> a_new_stop)<br>
+  </div>
+  <br>
+  These functions are dedicated to cut waveform of the object. Both functions work identically.<br><br>
+  Arguments and return:<br>  
+  <lu>
+    <li>a_new_start <span class="details">- new start instant (rounded to the nearest sample).</span></li>
+    <li>a_new_stop <span class="details">- new start instant (rounded to the nearest sample).</span></li>
+    <li>return <span class="details">- number of samples of a modified waveform.</span></li>
+  </lu>
+  <br>
+
+
+  
+
+  <div class="functions" id="modulate_waveform">
+    <span class="title">Modulate waveform</span> (methods)<br><br>
+    1. <span class="type">void</span> <span class="name">modulate_waveform</span>(<span class="type">double</span> a_frequency_shift)<br>
+    2. <span class="type">void</span> <span class="name">modulate</span>(<span class="type">double</span> a_frequency_shift)<br>
+  </div>
+  <br>
+  These functions are dedicated to modulate waveform of the object. Both functions work identically.<br><br>
+  Arguments and return:<br>  
+  <lu>
+    <li>a_frequency_shift <span class="details">- frequency shift.</span></li>
+  </lu>
+  <br>
+
+
+
+
+
+  
+  <div class="functions" id="tfr_fourier_spectrum">
+    <span class="title">Fourier spectrum</span> (methods)<br><br>
+    1. <span class="type">tfr_fourier_spectrum*</span> <span class="name">get_fourier_spectrum</span>()<br>
+    2. <span class="type">tfr_fourier_spectrum*</span> <span class="name">get_spectrum</span>()<br>
+  </div>
+  <br>
+  These functions are dedicated to Fourier spectrum calculation of the waveform of the object. Both functions work identically.<br><br>
+   Arguments and return:<br>  
+  <lu>
+    <li>return <span class="details">- new object of <a href="spectrum.html">the Fourier spectrum class</a>.</span></li>
+  </lu>
+  <br>
+
+
+
+
+
+  <div class="functions" id="calc_energy">
+    <span class="title">Energy calculation</span> (method)<br><br>
+    1. <span class="type">double</span> <span class="name">calc_energy</span>()
+  </div><br>
+  This function can be used for energy calculation of the signal.
+  <br><br>
+   Arguments and return:<br>  
+  <lu>
+    <li>return <span class="details">- signal energy.</span></li>
+  </lu>
+  <br>
+
+
+
+
+
+  <div class="functions" id="save">
+    <span class="title">Save signal</span> (methods)<br><br>
+    1. <span class="type">void</span> <span class="name">save_to_file</span>(<span class="type">const char*</span> a_filename)<br>
+    2. <span class="type">void</span> <span class="name">save</span>(<span class="type">const char*</span> a_filename)
+  </div><br>
+  These functions write signal to a text file. Both functions work identically.
+  <br><br>
+  Arguments and return:<br>  
+  <lu>
+    <li>a_filename <span class="details">- file name.</span></li>
+  </lu>
+  <br>
+
+
+    <div class="functions" id="save_wav">
+    <span class="title">Save signal</span> (methods)<br><br>
+    1. <span class="type">void</span> <span class="name">save_to_wavfile</span>(<span class="type">const char*</span> a_filename)<br>
+    2. <span class="type">void</span> <span class="name">save_wav</span>(<span class="type">const char*</span> a_filename)
+  </div><br>
+  These functions write signal to a wav file. Both functions work identically.
+  <br><br>
+  Arguments and return:<br>  
+  <lu>
+    <li>a_filename <span class="details">- file name.</span></li>
+  </lu>
+  <br>
+
+
+
+  
+  <div class="properties" id="waveform">
+    <span class="title">Waveform</span> (property)<br><br>
+    <span class="type">complex double*</span> <span class="name">m_waveform</span>
+  </div><br>
+  This one-dimensional array contains complex-valued samples (the waveform array).
+  <br>
+  <div class="center"><a href="index.html">main menu</a></div>
+</body>  
+</html>

@@ -1,0 +1,187 @@
+<html>
+<head>
+  <title>ccTFR 0-16</title>  
+  <link rel="stylesheet" type="text/css" href="style.css">  
+</head>
+
+<body>
+  <div class="center"><a href="index.html">main menu</a></div>
+  <span class="title">tfr_analyzer</span><br><br>
+  This class introduces definition of time-frequency analyzer.<br><br>
+  
+  <div class="includes">
+    <span class="title">Files</span><br><br>
+    tfr-analyzer.hh<br>
+    tfr-analyzer.cc<br>
+    tfr-iir-analyzer.hh<br>
+    tfr-iir-analyzer.cc<br>
+    tfr-fft-analyzer.hh<br>
+    tfr-fft-analyzer.cc
+  </div>
+  <br>
+
+  <div class="functions">
+    <span class="title">Functionality</span> (only public methods of tfr_analyzer)<br><br>
+
+    <table>
+      <tr>
+	<td></td>
+	<td><a href="#tf_analyzer"><span class="name">tfr_iir_analyzer</span>(<span class="type">tfr_array_config*</span>, <span class="type">tfr_filter_config*</span>)</a></td>
+      </tr>
+      <tr>
+	<td></td>
+	<td><a href="#tf_analyzer"><span class="name">tfr_fft_analyzer</span>(<span class="type">tfr_array_config*</span>, <span class="type">tfr_window_config*</span>)</a></td>
+      </tr>
+
+      <tr><td><br></td></tr>
+
+      <tr>
+	<td class="right"><a href="#set_signal"><span class="type">void</span></a></td>
+	<td><a href="#set_signal"><span class="name">set_signal</span>(<span class="type">tfr_complex_signal*</span>, <span class="type">int</span> =1)</a></td>
+      </tr>
+      
+      <tr><td><br></td></tr>
+
+      <tr>
+	<td class="right"><a href="#spectral_energy"> <span class="type">tfr_raster_image*</span></a></td>
+	<td><a href="#spectral_energy"> <span class="name">get_spectral_energy</span>()</a></td>  
+      </tr>
+      
+      <tr><td><br></td></tr>
+
+      <tr>
+	<td class="right"> <a href="#spectral_delay"><span class="type">tfr_raster_image*</span> </a></td> 
+	<td> <a href="#spectral_delay"><span class="name">get_spectral_delay</span>()</a></td> 
+      </tr>
+
+      <tr><td><br></td></tr>
+
+      <tr>
+	<td class="right"><a href="#instantaneous_frequency"> <span class="type">tfr_raster_image*</span></a></td>
+	<td><a href="#instantaneous_frequency"> <span class="name">get_instantaneous_frequency</span>()</a></td>
+      </tr>
+
+      <tr><td><br></td></tr>
+
+      <tr>
+	<td class="right"><a href="#chirp_rate"><span class="type">tfr_raster_image*</span></a></td>
+	<td><a href="#chirp_rate"><span class="name">get_chirp_rate</span>(<span class="type">int</span> =0)</a></td>
+      </tr>
+      <tr>
+	<td class="right"><a href="#chirp_rate"><span class="type">tfr_raster_image*</span></a></td>
+	<td><a href="#chirp_rate"><span class="name">get_chirp_rate_by_k_estimator</span>()</a></td>
+      </tr>
+      <tr>
+	<td class="right"><a href="#chirp_rate"><span class="type">tfr_raster_image*</span></a></td>
+	<td><a href="#chirp_rate"><span class="name">get_chirp_rate_by_d_estimator</span>()</a></td>
+      </tr>
+      <tr>
+	<td class="right"><a href="#chirp_rate"><span class="type">tfr_raster_image*</span></a></td>
+	<td><a href="#chirp_rate"><span class="name">get_chirp_rate_by_f_estimator</span>()</a></td>
+      </tr>
+
+      <tr><td><br></td></tr>
+
+      <tr>
+	<td class="right"><a href="#create_empty_image"><span class="type">tfr_raster_image*</span></a></td>
+	<td><a href="#create_empty_image"><span class="name">create_empty_image</span>()</a></td>
+      </tr>
+    </table>
+  </div>
+  <br>
+
+  <div class="functions" id="tf_analyzer">
+    <span class="title">Analyzer construction</span><br><br>
+    1. <span class="name">tfr_iir_analyzer</span>(<span class="type">tfr_array_config*</span> a_bank_conf, <span class="type">tfr_filter_config*</span> a_filter_conf)<br>
+    2. <span class="name">tfr_fft_analyzer</span>(<span class="type">tfr_array_config*</span> a_bank_conf, <span class="type">tfr_window_config*</span> a_window_conf)
+  </div>
+  <br>
+  The first constructor creates an object using the structure of bank configuration for set center frequencies of filters. The second structure defines other filter parameters. The secont is yet not implemented.<br><br>
+  Arguments and return:<br>  
+  <lu>
+    <li>a_filter_conf <span class="details">- pointer to filter configuration,</span></li>
+    <li>a_window_conf <span class="details">- pointer to window configuration,</span></li>
+    <li>a_bank_conf <span class="details">- pointer to bank configuration.</span></li>
+  </lu>
+  <br>
+
+  <div class="functions" id="set_signal">
+    <span class="title">Set signal</span> (method)<br><br>
+    1. <span class="type">void</span> <span class="name">set_signal</span>(<span class="type">tfr_complex_signal*</span> a_signal, <span class="type">int</span> a_hop)
+  </div>
+  <br>
+  The function allows to set analyzed signal. Filtering is made here automatically.<br><br>
+  Arguments and return:<br>  
+  <lu>
+    <li>a_signal <span class="details">- input signal,</span></li>
+    <li>a_hop <span class="details">- decimation factor (default value is 1).</span></li>
+  </lu>
+  <br>
+
+  <div class="functions" id="spectral_energy">
+    <span class="title">Spectral energy</span> (method)<br><br>
+    1. <span class="type">tfr_raster_image*</span> <span class="name">get_spectral_energy</span>()
+  </div>
+  <br>
+  The method returns energy distribution in the time-frequency domain.<br><br>
+  Arguments and return:<br>  
+  <lu>
+    <li>return <span class="details">- energy distribution.</span></li>
+  </lu>
+  <br>
+
+  <div class="functions" id="instantaneous_frequency">
+    <span class="title">Instantaneous frequency</span> (method)<br><br>
+    1. <span class="type">tfr_raster_image*</span> <span class="name">get_instantaneous_frequency</span>()
+  </div>
+  <br>
+  The method returns instantaneous frequency distribution in the time-frequency domain.<br><br>
+  Arguments and return:<br>  
+  <lu>
+    <li>return <span class="details">- instantaneous frequency.</span></li>
+  </lu>
+  <br>
+  
+  <div class="functions" id="spectral_delay">
+    <span class="title">Spectral delay</span> (method)<br><br>
+    1. <span class="type">tfr_raster_image*</span> <span class="name">get_spectral_delay</span>()
+  </div>
+  <br>
+  The method returns spectral delay (or group delay) distribution in the time-frequency domain.<br><br>
+  Arguments and return:<br>  
+  <lu>
+    <li>return <span class="details">- spectral delay.</span></li>
+  </lu>
+  <br>
+
+    <div class="functions" id="chirp_rate">
+    <span class="title">Chirp-rate</span> (method)<br><br>
+    1. <span class="type">tfr_raster_image*</span> <span class="name">get_chirp_rate</span>(<span class="type">int</span> a_estimator_code)<br>
+    2. <span class="type">tfr_raster_image*</span> <span class="name">get_chirp_rate_by_k_estimator</span>()<br>
+    3. <span class="type">tfr_raster_image*</span> <span class="name">get_chirp_rate_by_d_estimator</span>()<br>
+    4. <span class="type">tfr_raster_image*</span> <span class="name">get_chirp_rate_by_f_estimator</span>()
+  </div>
+  <br>
+  The methods which return chirp-rate distribution in the time-frequency domain using different estimators.<br><br>
+  Arguments and return:<br>  
+  <lu>
+    <li>a_estimator_code <span class="details">- estimator code (0,1,2; see documentation; default value is 0).</span></li>
+    <li>return <span class="details">- chirp-rate.</span></li>
+  </lu>
+  <br>
+
+  <div class="functions" id="create_empty_image">
+    <span class="title">Create empty TF image</span> (method)<br><br>
+    1. <span class="type">tfr_raster_image*</span> <span class="name">create_empty_image</span>()
+  </div>
+  <br>
+  The method returns new an empty <a href="image.html">time-frequency image</a>.<br><br>
+  Arguments and return:<br>  
+  <lu>
+    <li>return <span class="details">- pointer to an new empty image.</span></li>
+  </lu>
+  <br>
+
+  <div class="center"><a href="index.html">main menu</a></div>
+</body>  
+</html>

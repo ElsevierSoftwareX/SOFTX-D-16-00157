@@ -1,0 +1,31 @@
+GENERAL NOTES
+
+Time-Frequency Reassignment C++ framework (ccTFR) is an opensource project published under GNU GPL license. Please see LICENSE file. You can check version number of this software in VERSION file. This framework is dedicated to Linux platforms. It has been tested on GNU Linux OS (GNU Debian, version: stretch/sid).
+
+NOTES ABOUT AUTHORS
+
+Please check authorship and contact to the authors in AUTHORS file.
+
+NOTES ABOUT BUILDING
+
+Please compile the project by: 
+
+make
+ 
+then all needed objects and the following test executable files should be created:
+- test-filter
+- test-wavfile
+- test-synthetic
+- test-noise
+- test-speech
+
+NOTES FOR DEVELOPERS 
+
+Please see manual/ directory for a reference manual:
+open index.html file in any Web browser.
+
+Please use the prefix a_ for variables given as function arguments.
+Please use the prefix m_ for variables which are members of objects.
+Please use the prefix tfr_ for any definition of new data structures.
+Please use the suffix _config for any definition of config structures.
+Please use the prefix tfr_ also for any definition of new objects.

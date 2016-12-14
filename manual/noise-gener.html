@@ -1,0 +1,108 @@
+
+<html>
+<head>
+  <title>ccTFR 0-16</title>  
+  <link rel="stylesheet" type="text/css" href="style.css">  
+</head>
+
+<body>
+  <div class="center"><a href="index.html">main menu</a></div>
+  <span class="title">tfr_noise_generator</span><br><br>
+  This class introduces generator definition. The generator is dedicated to produce noise (pseudo pink and white).<br><br>
+
+  <div class="includes">
+    <span class="title">Files</span><br><br>
+    tfr-noise-gener.hh<br>
+    tfr-noise-gener.cc
+  </div>
+  <br>
+
+
+  <div class="functions">
+    <span class="title">Functionality</span> (only public methods of tfr_noise_generator)<br><br>
+    <table>
+      <tr>
+	<td></td>	
+	<td><a href="#signal_generator"> <span class="name">tfr_noise_generator</span>(<span class="type">void</span>)</a><td>
+      </tr>
+
+      <tr><td><br></td></tr>
+
+      <tr>
+	<td class="right"><a href="#add_awgn"><span class="type">double</span></a></td>
+	<td><a href="#add_awgn"><span class="name">add_awgn_using_snr</span>(<span class="type">tfr_complex_signal*</span>, <span class="type">double</span>)</a></td>
+      </tr>
+      <tr>
+	<td class="right"><a href="#add_awgn"><span class="type">double</span></a></td>
+	<td><a href="#add_awgn"><span class="name">add_awgn_using_sigma</span>(<span class="type">tfr_complex_signal*</span>, <span class="type">double</span>)</a></td>
+      </tr>
+      <tr>
+	<td class="right"><a href="#add_awgn"><span class="type">double</span></a></td>
+	<td><a href="#add_awgn"><span class="name">add_awgn_at_exact_snr</span>(<span class="type">tfr_complex_signal*</span>, <span class="type">double</span>)</a></td>
+      </tr>
+
+      <tr><td><br></td></tr>
+	    
+      <tr>
+	<td class="right"><a href="#add_pink"><span class="type">double</span></a></td>
+	<td><a href="#add_pink"><span class="name">add_pink_using_range</span>(<span class="type">tfr_complex_signal*</span>, <span class="type">double</span>)</a></td>
+      </tr>
+      <tr>
+	<td class="right"><a href="#add_pink"><span class="type">double</span></a></td>
+	<td><a href="#add_pink"><span class="name">add_pink_at_exact_snr</span>(<span class="type">tfr_complex_signal*</span>, <span class="type">double</span>)</a></td>
+      </tr>
+
+    </table>
+  </div>
+  <br>
+
+
+
+  <div class="functions" id="signal_generator">
+    <span class="title">Generator construction</span><br><br>
+    1. <span class="name">tfr_noise_generator</span>(<span class="type">void</span>)<br>
+  </div>
+  <br>
+  This constructor allocates internal buffers.
+  <br><br>
+
+
+  <div class="functions" id="add_awgn">
+    <span class="title">White noise adding</span> (methods)<br><br>
+    1. <span class="type">double</span> <span class="name">add_awgn_using_snr</span>(<span class="type">tfr_complex_signal*</span> a_sig, <span class="type">double</span> a_snr)<br>
+    2. <span class="type">double</span> <span class="name">add_awgn_using_sigma</span>(<span class="type">tfr_complex_signal*</span> a_sig, <span class="type">double</span> a_sigma)<br>
+    3. <span class="type">double</span> <span class="name">add_awgn_at_exact_snr</span>(<span class="type">tfr_complex_signal*</span> a_sig, <span class="type">double</span> a_snr)<br>
+  </div>
+  <br>
+  These functions add pseudo white noise to the waveform of the signal object which is given as an argument. First  mehod uses signal-to-noise ratio (SNR), second uses sigma, and thrid also SNR. It is The thrid is slower than first.  However, it adds noise with exact specified SNR. These functions add noise to the whole signal.<br><br>
+   Arguments and return:<br>  
+  <lu>
+    <li>a_snr <span class="details">- signal-to-noise ratio,</span></li>
+    <li>a_sigma <span class="details">- sigma used for noise generation,</span></li>
+    <li>a_sig <span class="details">- existing signal, which will be modified,</span></li>
+    <li>return <span class="details">- added energy.</span></li>
+  </lu>
+  <br>
+
+
+    <div class="functions" id="add_pink">
+    <span class="title">Pink noise adding</span> (methods)<br><br>
+    1. <span class="type">double</span> <span class="name">add_pink_using_range</span>(<span class="type">tfr_complex_signal*</span> a_sig, <span class="type">double</span> a_range)<br>
+    2. <span class="type">double</span> <span class="name">add_pink_at_exact_snr</span>(<span class="type">tfr_complex_signal*</span> a_sig, <span class="type">double</span> a_snr)<br>
+  </div>
+  <br>
+  These functions add pseudo-pink noise (1/f) to the waveform of the signal object which is given as an argument. We are based on the description from <a href="http://www.firstpr.com.au/dsp/pink-noise">this webpage</a>. First  mehod uses range, second uses signal-to-noise ratio. These functions add noise to the whole signal.<br><br>
+   Arguments and return:<br>  
+  <lu>
+    <li>a_snr <span class="details">- signal-to-noise ratio,</span></li>
+    <li>a_range <span class="details">- range used for noise generation,</span></li>
+    <li>a_sig <span class="details">- existing signal, which will be modified,</span></li>
+    <li>return <span class="details">- added energy.</span></li>
+  </lu>
+  <br>
+
+
+
+  <div class="center"><a href="index.html">main menu</a></div>
+</body>  
+</html>

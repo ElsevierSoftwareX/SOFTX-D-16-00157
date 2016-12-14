@@ -1,0 +1,61 @@
+
+div.functions{
+    background-color:#ffe;
+    border-top: 2px solid;
+    padding:10px 0 2px 0;
+}
+
+div.properties{
+    background-color:#fef;
+    border-top: 2px solid;
+    padding:10px 0 2px 0;
+}
+
+div.structures{
+    background-color:#efe;
+    border-top: 2px solid;
+    padding:10px 0 2px 0;
+}
+
+div.includes{
+    background-color:#eff;
+    border-top: 2px solid;
+    padding:10px 0 2px 0;
+}
+
+div.center{
+    text-align: center;
+}
+
+div.signatures{
+    background-color:#eee;
+    border-top: 2px solid;
+    padding:10px 0 2px 0;
+}
+
+td.right{
+    text-align: right;  
+}
+
+span.title{
+    font-weight:bold;
+}
+
+span.name{
+    color: #800;
+}
+span.type{
+    color: #080;
+}
+span.details{
+    color: #777;
+}
+
+a {
+    color: #08f;
+    text-decoration: none;
+}
+
+span.code{
+    color: #880;
+}

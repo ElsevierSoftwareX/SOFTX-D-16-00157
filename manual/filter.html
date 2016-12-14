@@ -1,0 +1,201 @@
+
+<html>
+<head>
+  <title>ccTFR 0-16</title>  
+  <link rel="stylesheet" type="text/css" href="style.css">  
+</head>
+
+<body>
+  <div class="center"><a href="index.html">main menu</a></div>
+  <span class="title">tfr_recursive_filter</span><br><br>
+  This class introduces definition of recursive causal filter.<br><br>
+
+  <div class="includes">
+    <span class="title">Files</span><br><br>
+    tfr-recursive-filter.hh<br>
+    tfr-recursive-filter.cc
+  </div>
+  <br>
+
+
+  <div class="structures">
+    <span class="title">Structures</span> (introduced structures)<br><br>
+    <a href="#struct"><span class="type">struct</span> tfr_filter_config</a><br>
+  </div>
+  <br>
+
+  
+  <div class="functions">
+    <span class="title">Functionality</span> (only public methods of tfr_recursive_filter)<br><br>
+
+    <table>
+      <tr>
+	<td></td>
+	<td><a href="#tfr_recursive_filter"><span class="name">tfr_recursive_filter</span>(<span class="type">tfr_filter_config*</span>)</a></td>
+      </tr>
+      
+
+      <tr><td><br></td></tr>
+
+      <tr>
+	<td class="right"><a href="#get_config"><span class="type">tfr_filter_config*</span></a></td>
+	<td><a href="#get_config"><span class="name">get_filter_configuration</span>()</a></td>
+      </tr>
+      <tr>
+	<td class="right"><a href="#get_config"><span class="type">tfr_filter_config*</span></a></td>
+	<td><a href="#get_config"><span class="name">get_config</span>()</a></td>    
+      </tr>
+      
+      <tr><td><br></td></tr>
+
+      <tr>
+	<td class="right"><a href="#filtering"> <span class="type">complex double</span></a></td>
+	<td><a href="#filtering"> <span class="name">filtering</span>(<span class="type">complex double</span>)</a></td>
+      </tr>
+      <tr>
+	<td class="right"><a href="#filtering"> <span class="type">tfr_complex_signal*</span></a></td>
+	<td><a href="#filtering"> <span class="name">filtering</span>(<span class="type">tfr_complex_signal*</span>, <span class="type">int</span> =1)</a></td>
+      </tr>
+
+      <tr><td><br></td></tr>
+
+      <tr>
+	<td class="right"><a href="#pfactor"><span class="type">complex double</span></a></td>
+	<td><a href="#pfactor"><span class="name">get_p_factor</span>()</a></td>
+      </tr>
+      <tr>
+	<td class="right"><a href="#processed"> <span class="type">int</span></a></td>
+	<td><a href="#processed"> <span class="name">get_processed_sample_number</span>()</a></td>
+      </tr>
+    </table>
+  </div>
+  <br>
+
+
+
+  
+  <div class="properties">
+    <span class="title">Properties</span> (only public fields of tfr_recursive_filter)
+    <br><br>
+
+    <a href="#output">m_output</a><br>
+  </div>
+  <br>
+
+
+  
+  <div class="structures" id="struct">
+    <span class="title"><span class="details">Structure</span> tfr_filter_config</span> <br><br>
+
+    <table>
+      <tr>
+	<td class="right"><span class="type">double</span></td>
+	<td>frequency</td>
+      </tr>
+      <tr>
+	<td class="right"><span class="type">double</span></td>
+	<td>spread</td>
+      </tr>
+      <tr>
+	<td class="right"><span class="type">double</span></td>
+	<td>rate</td>
+      </tr>
+      <tr>
+	<td class="right"><span class="type">int</span></td>
+	<td>order</td>
+      </tr>
+    </table>
+  </div><br>
+  This structure preserves full filter configuration.
+  <br><br>
+
+
+  
+  <div class="functions" id="tfr_recursive_filter">
+    <span class="title">Filter construction</span><br><br>
+    1. <span class="name">tfr_recursive_filter</span>(<span class="type">tfr_filter_config*</span> a_conf)<br>
+  </div>
+  <br>
+  We provide the constructor which uses the filter structure. <br><br>
+  Argument:<br>  
+  <lu>
+    <li>a_conf <span class="details">- filter configuration.</span></li>
+  </lu>
+  <br>
+
+
+
+  
+  <div class="functions" id="get_config">
+    <span class="title">Get configuration</span> (methods)<br><br>
+    1. <span class="type">tfr_filter_config*</span> <span class="name">get_filter_configuration</span>()<br>
+    2. <span class="type">tfr_filter_config*</span> <span class="name">get_config</span>()<br>
+  </div>
+  <br>
+  These functions return object configuration as a pointer to a tfr_filter_config object. Both functions work identically.<br><br>
+  Arguments and return:<br>  
+  <lu>
+    <li>return <span class="details">- filter configuration.</span></li>
+  </lu>
+  <br>
+
+
+
+  
+  <div class="functions" id="filtering">
+    <span class="title">Filtering</span> (methods)<br><br>
+    1. <span class="type">complex double</span> <span class="name">filtering</span>(<span class="type">complex double</span> a_sample)<br>
+    2. <span class="type">tfr_complex_signal*</span> <span class="name">filtering</span>(<span class="type">tfr_complex_signal*</span> a_signal, <span class="type">int</span> a_hop)
+  </div>
+  <br>
+  These functions realize filtering operation. The first function gets single input sample and return single output sample. The second works with the whole input signal, then output signal is allocated and its pointer is returned.<br><br>
+  Arguments and return:<br>  
+  <lu>
+    <li>a_sample <span class="details">- single input complex-valued sample,</span></li>
+    <li>a_signal <span class="details">- input signal,</span></li>
+    <li>a_hop <span class="details">- decimation factor (default value is 1),</span></li>
+    <li>return (first) <span class="details">- output sample,</span></li>
+    <li>return (second) <span class="details">- output signal.</span></li>
+  </lu>
+  <br>
+
+
+  
+  <div class="functions" id="pfactor">
+    <span class="title">P factor</span> (method)<br><br>
+    1. <span class="type">complex double</span> <span class="name">get_p_factor</span>()<br>
+  </div>
+  <br>
+  The function returns the complex p factor.<br><br>
+  Arguments and return:<br>  
+  <lu>
+    <li>return <span class="details">- p factor.</span></li>
+  </lu>
+  <br>
+
+
+
+  <div class="functions" id="processed">
+    <span class="title">Processed samples</span> (method)<br><br>
+    1. <span class="type">int</span> <span class="name">get_processed_sample_number</span>()<br>
+  </div>
+  <br>
+  The function returns the number of processed samples.<br><br>
+  Arguments and return:<br>  
+  <lu>
+    <li>return <span class="details">- number of processed samples.</span></li>
+  </lu>
+  <br>
+
+
+
+  
+  <div class="properties" id="output">
+    <span class="title">Output</span> (property)<br><br>
+    <span class="type">complex double</span> <span class="name">m_output</span>
+  </div><br>
+  Last returned value.
+  <div class="center"><a href="index.html">main menu</a></div>
+</body>  
+</html>
+

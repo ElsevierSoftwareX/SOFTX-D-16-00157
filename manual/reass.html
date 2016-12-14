@@ -1,0 +1,106 @@
+
+<html>
+<head>
+  <title>ccTFR 0-16</title>  
+  <link rel="stylesheet" type="text/css" href="style.css">  
+</head>
+<body>
+  <div class="center"><a href="index.html">main menu</a></div><br>
+  <span class="title">reassigning functions</span><br><br>
+  These independent functions realize time-frequency (as well as using other parameters) energy reassignment.<br><br>
+
+  <div class="includes">
+    <span class="title">Files</span><br><br>
+    tfr-reass.hh<br>
+    tfr-reass.cc
+  </div>
+  <br>
+
+  <div class="functions">
+    <span class="title">Functions</span><br><br>
+
+    <table>
+      <tr>
+	<td class="right"><a href="#reassign_time_frequency"><span class="type">tf_image*</span></a></td>
+	<td><a href="#reassign_time_frequency"><span class="name">reassign_time_frequency</span>(<span class="type">tf_image*</span>, <span class="type">tf_image*</span>, <span class="type">tf_image*</span>, <span class="type">tf_image*</span> =NULL)</a></td>
+      </tr>
+
+      <tr><td><br></td></tr>
+
+      <tr>
+	<td class="right"><a href="#reassign_frequency"><span class="type">tf_image*</span></a></td>
+	<td><a href="#reassign_frequency"><span class="name">reassign_frequency</span>(<span class="type">tf_image*</span>, <span class="type">tf_image*</span>, <span class="type">tf_image*</span> =NULL)</a></td>
+      </tr>
+      <tr>
+	<td class="right"><a href="#reassign_frequency"><span class="type">tf_image*</span></a></td>
+	<td><a href="#reassign_frequency"><span class="name">reassign_frequency</span>(<span class="type">tf_image*</span>, <span class="type">tf_image*</span>, <span class="type">tf_image*</span>, <span class="type">tf_image*</span>, <span class="type">tf_image*</span> =NULL)</a></td>
+      </tr>
+      
+      <tr><td><br></td></tr>
+
+      <tr>
+	<td class="right"><a href="#profile"><span class="type">tfr_complex_signal*</span></a></td>
+	<td><a href="#reassign_time_frequency"><span class="name">calculate_profile</span>(<span class="type">tf_image*</span>, <span class="type">tf_image*</span>, <span class="type">tfr_array_config*</span>)</a></td>
+      </tr>
+    </table>
+  </div>
+  <br>
+
+
+
+  <div class="functions" id="reassign_time_frequency">
+    <span class="title">Time-frequency reassignment</span> (functions)<br><br>
+    1. <span class="type">tf_image*</span> <span class="name">reassign_time_frequency</span>(<span class="type">tf_image*</span> a_sdelay, <span class="type">tf_image*</span> a_ifrequency, <span class="type">tf_image*</span> a_senergy, <span class="type">tf_image*</span> a_output)<br>
+  </div>
+  <br>
+  This function realizes simple time-frequency reassignment. The output image can have different time-frequency configuration as well as width and height. These informations are taken from the last argument (a_output) - have to be allocated. If last argument is NULL then memory is allocated for output object independently.<br><br>
+  Arguments and return:<br>  
+  <lu>
+    <li>a_sdelay <span class="details">- spectral delay,</span></li>
+    <li>a_ifrequency <span class="details">- instantaneous frequency,</span></li>
+    <li>a_senergy <span class="details">- spectral energy,</span></li>
+    <li>a_output <span class="details">- object to which energy is added (default value is NULL),</span></li>
+    <li>return <span class="details">- reassigned energy.</span></li>
+  </lu>
+  <br>
+
+
+
+  <div class="functions" id="reassign_frequency">
+    <span class="title">Frequency reassignment</span> (functions)<br><br>
+    1. <span class="type">tf_image*</span> <span class="name">reassign_frequency</span>(<span class="type">tf_image*</span> a_ifrequency, <span class="type">tf_image*</span> a_senergy, <span class="type">tf_image*</span> a_output)<br>
+    2. <span class="type">tf_image*</span> <span class="name">reassign_frequency</span>(<span class="type">tf_image*</span> a_sdelay, <span class="type">tf_image*</span> a_crate, <span class="type">tf_image*</span> a_ifrequency, <span class="type">tf_image*</span> a_senergy, <span class="type">tf_image*</span> a_output)<br>
+  </div>
+  <br>
+  These functions realize the reassignment only in frequency. The output image can have different time-frequency configuration as well as width and height. These informations are taken from the last argument (a_output) - output have to be before allocated. Otherwise, if last argument is equal to NULL, then memory is allocated for output object independently.<br><br>
+  Arguments and return:<br>  
+  <lu>
+    <li>a_sdelay <span class="details">- spectral delay,</span></li>
+    <li>a_crate <span class="details">- chirp rate,</span></li>
+    <li>a_ifrequency <span class="details">- instantaneous frequency,</span></li>
+    <li>a_senergy <span class="details">- spectral energy,</span></li>
+    <li>a_output <span class="details">- object to which energy is added (default value is NULL),</span></li>
+    <li>return <span class="details">- reassigned energy.</span></li>
+  </lu>
+  <br>
+
+
+  <div class="functions" id="profile">
+    <span class="title">Energy profile (histogram)</span> (function)<br><br>
+    1. <span class="type">tfr_complex_signal*</span> <span class="name">calculate_profile</span>(<span class="type">tf_image*</span> a_val, <span class="type">tf_image*</span> a_energy, <span class="type">tfr_array_config*</span> a_arr_conf)<br>
+  </div>
+  <br>
+  This function calculates energy profile and histogram as a function of a given parameter (as the TF distribution) and it returns its as tfr_complex_signal. The energy profile is its real part, the histogram is saved in its imaginary part.<br><br>
+  Arguments and return:<br>  
+  <lu>
+    <li>a_val <span class="details">- TF distribution of a parameter,</span></li>
+    <li>a_energy <span class="details">- spectral energy in TF domain,</span></li>
+    <li>a_arr_conf <span class="details">- configuration of profile (histogram),</span></li>
+    <li>return <span class="details">- signal storing the profile and histogram.</span></li>
+  </lu>
+  <br>
+
+  
+  <div class="center"><a href="index.html">main menu</a></div>
+</body>  
+</html>

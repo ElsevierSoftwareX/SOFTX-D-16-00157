@@ -1,0 +1,194 @@
+
+<html>
+<head>
+  <title>ccTFR 0-16</title>  
+  <link rel="stylesheet" type="text/css" href="style.css">  
+</head>
+<body>
+  <div class="center"><a href="index.html">main menu</a></div><br>
+  <span class="title">miscellaneous functions</span><br><br>
+  Miscellaneous independent useful functions.<br><br>
+
+  <div class="includes">
+    <span class="title">Files</span><br><br>
+    tfr-misc.hh<br>
+    tfr-misc.cc
+  </div>
+  <br>
+
+  <div class="functions">
+    <span class="title">Functionality</span> (independent functions)<br><br>
+
+    <table>
+      
+      <tr>    
+	<td class="right"><a href="#print_title"><span class="type">void</span> </a></td>
+	<td><a href="#print_title"><span class="name">tf_print_info</span>()</a></td>
+      </tr>
+      
+      <tr><td><br></td></tr>
+      
+      <tr>    
+	<td class="right"><a href="#call_error"><span class="type">void</span> </a></td>
+	<td><a href="#call_error"><span class="name">call_error</span>(<span class="type">const char*</span>)</a></td>
+      </tr>
+
+
+      <tr>    
+	<td class="right"><a href="#call_error"><span class="type">void</span> </a></td>
+	<td><a href="#call_error"><span class="name">call_warning</span>(<span class="type">const char*</span>)</a></td>
+      </tr>
+
+      <tr>    
+	<td class="right"><a href="#call_error"><span class="type">void</span> </a></td>
+	<td><a href="#call_error"><span class="name">call_info</span>(<span class="type">const char*</span>)</a></td>
+      </tr>
+
+      <tr><td><br></td></tr>
+
+      <tr>    
+	<td class="right"><a href="#progress_bar"><span class="type">void</span></a></td>
+	<td><a href="#progress_bar"><span class="name">progress_bar</span>(<span class="type">int</span>, <span class="type">int</span>, <span class="type">const char*</span>)</a></td>
+      </tr>    
+
+      <tr><td><br></td></tr>
+ 
+      <tr>    
+	<td class="right"><a href="#rand_gauss"><span class="type">double</span></a></td>
+	<td><a href="#rand_gauss"><span class="name">rand_gauss</span>(<span class="type">double</span>)</a></td>
+      </tr>    
+
+      <tr><td><br></td></tr>
+
+      <tr>    
+	<td class="right"><a href="#calc_factorial"><span class="type">int</span></a></td>
+	<td><a href="#calc_factorial"><span class="name">calc_factorial</span>(<span class="type">int</span>)</a></td>
+      </tr>    
+
+      <tr><td><br></td></tr>
+
+      <tr>
+      <td class="right"><a href="#calc_binominal"><span class="type">double</span> </a></td>
+      <td><a href="#calc_binominal"><span class="name">calc_binominal</span>(<span class="type">int</span>, <span class="type">int</span>)</a></td>
+      </tr>
+	
+      <tr><td><br></td></tr>
+
+      <tr>
+	<td class="right"><a href="#calc_eulerian"><span class="type">double</span> </a></td>
+	<td><a href="#calc_eulerian"><span class="name">calc_eulerian</span>(<span class="type">int</span>, <span class="type">int</span>)</a></td>
+      </tr>
+
+      <tr><td><br></td></tr>
+
+      <tr>
+	<td class="right"><a href="#calc_bh"><span class="type">double</span> </a></td>
+	<td><a href="#calc_eulerian"><span class="name">calc_blackman_harris</span>(<span class="type">int</span>, <span class="type">int</span>, <span class="type">int</span>)</a></td>
+      </tr>
+
+    </table>
+  </div>
+  <br>
+
+
+  <div class="functions" id="print_title">
+    <span class="title">Print info</span> (function)<br><br>
+    1. <span class="type">void</span> <span class="name">tf_print_info</span>(<span class="type">const char*</span> a_msg)<br>
+  </div>
+  <br>
+  This function print info about the project.<br><br>
+
+  
+    <div class="functions" id="call_error">
+    <span class="title">Diagnostic call system</span> (functions)<br><br>
+    1. <span class="type">void</span> <span class="name">call_error</span>(<span class="type">const char*</span> a_msg)<br>
+    2. <span class="type">void</span> <span class="name">call_warning</span>(<span class="type">const char*</span> a_msg)<br>
+    3. <span class="type">void</span> <span class="name">call_info</span>(<span class="type">const char*</span> a_msg)<br>
+  </div>
+  <br>
+  This function should be called if error or warning is caught or some info should be pirnted. An error terminates a program. In next versions debug system will be extended and it will uses also this function.<br><br>
+  Arguments and return:<br>  
+  <lu>
+    <li>a_msg <span class="details">- info, statement.</span></li>
+  </lu>
+  <br>
+  <div class="functions" id="progress_bar">
+    <span class="title">Progress bar</span> (function)<br><br>
+    1. <span class="type">void</span> <span class="name">progress_bar</span>(<span class="type">int</span> a_curr, <span class="type">int</span> a_len, <span class="type">const char*</span> a_msg)<br>
+  </div>
+  <br>
+  This function print a progress bar in the text mode.<br><br>
+  Arguments and return:<br>  
+  <lu>
+    <li>a_curr <span class="details">- current position of a progress,</span></li>
+    <li>a_len <span class="details">- length of the bar,</span></li>
+    <li>a_msg <span class="details">- info, statement.</span></li>
+  </lu>
+  <br>
+  <div class="functions" id="rand_gauss">
+    <span class="title">Rand Gaussian</span> (function)<br><br>
+    1. <span class="type">double</span> <span class="name">rand_gauss</span>(<span class="type">double</span> a_sigma)<br>
+  </div>
+  <br>
+  This function returns random number with normal probability using Box-Muller transform (G. E. P. Box and Mervin E. Muller, A Note on the Generation of Random Normal Deviates, The Annals of Mathematical Statistics (1958), Vol. 29, No. 2 pp. 610–611).<br><br>
+  Arguments and return:<br>  
+  <lu>
+    <li>a_sigma <span class="details">- sigma.</span></li>
+  </lu>
+  <br>
+  <div class="functions" id="calc_factorial">
+    <span class="title">Factorial</span> (function)<br><br>
+    1. <span class="type">int</span> <span class="name">calc_factorial</span>(<span class="type">int</span> a_number)<br>
+  </div>
+  <br>
+  This function returns factorial of the argument.<br><br>
+  Arguments and return:<br>  
+  <lu>
+    <li>a_number <span class="details">- number for which factorial is calculated,</span></li>
+    <li>return <span class="details">- factorial value.</span></li>
+  </lu>
+  <br>
+  <div class="functions" id="calc_binominal">
+    <span class="title">Binominal coefficient</span> (function)<br><br>
+    1. <span class="type">double</span> <span class="name">calc_binominal</span>(<span class="type">int</span> a_kval, <span class="type">int</span> a_nval)<br>
+  </div>
+  <br>
+  This function returns binominal coefficient of two arguments.<br><br>
+  Arguments and return:<br>  
+  <lu>
+    <li>a_kval <span class="details">- first argument,</span></li>
+    <li>a_nval <span class="details">- second argument,</span></li>
+    <li>return <span class="details">- binominal coefficient.</span></li>
+  </lu>
+  <br>
+
+  <div class="functions" id="calc_eulerian">
+    <span class="title">Eulerian number</span> (function)<br><br>
+    1. <span class="type">double</span> <span class="name">calc_eulerian</span>(<span class="type">int</span> a_kval, <span class="type">int</span> a_nval)<br>
+  </div>
+  <br>
+  This function returns eulerian number of two arguments.<br><br>
+  Arguments and return:<br>  
+  <lu>
+    <li>a_kval <span class="details">- first argument,</span></li>
+    <li>a_nval <span class="details">- second argument,</span></li>
+    <li>return <span class="details">- eulerian number.</span></li>
+  </lu>
+  <br>
+
+    <div class="functions" id="calc_eulerian">
+    <span class="title">Blackman-Harris window</span> (function)<br><br>
+    1. <span class="type">double</span> <span class="name">calc_blackman_harris</span>(<span class="type">int</span> a_nr, <span class="type">int</span> a_length, <span class="type">int</span> a_derivative_order)<br>
+  </div>
+  <br>
+  This function returns one coefficient of blackman-Harris window.<br><br>
+  Arguments and return:<br>  
+  <lu>
+    <li>a_nr <span class="details">- index of returned coefficient,</span></li>
+    <li>a_length <span class="details">- window length (in coefficients),</span></li>
+    <li>a_derivative_order <span class="details">- order of derivative,</span></li>
+    <li>return <span class="details">- coefficient value.</span></li>
+  </lu>
+<div class="center"><a href="index.html">main menu</a></div>
+</body>  
+</html>
